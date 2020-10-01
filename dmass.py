@@ -32,7 +32,7 @@ async def userinfo(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await client.say(embed=embed)
     
-@commands.has_permissions(everyone=True)
+@commands.has_permissions(@everyone=True)
 @client.command(pass_context = True)
 async def send(ctx, *, content: str):
         for member in ctx.message.server.members:
