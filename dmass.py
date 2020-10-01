@@ -20,7 +20,7 @@ async def on_ready():
     print('CREATED AND HOSTED BY INVADER OP')
 
 @client.command(pass_context = True)
-@commands.has_permissions(send_message=True)     
+@commands.has_permissions(kick_member=True)     
 async def userinfo(ctx, user: discord.Member):
     r, g, b = tuple(int(x * 255) for x in colorsys.hsv_to_rgb(random.random(), 1, 1))
     embed = discord.Embed(title="{}'s info".format(user.name), description="Here's what I could find.", color = discord.Color((r << 16) + (g << 8) + b))
@@ -32,7 +32,7 @@ async def userinfo(ctx, user: discord.Member):
     embed.set_thumbnail(url=user.avatar_url)
     await client.say(embed=embed)
     
-@commands.has_permissions(administrator=True)
+@commands.has_permissions(member=True)
 @client.command(pass_context = True)
 async def send(ctx, *, content: str):
         for member in ctx.message.server.members:
